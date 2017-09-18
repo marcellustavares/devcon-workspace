@@ -19,6 +19,7 @@ package com.liferay.devcon.form.samples.display.context;
  */
 public enum FormType {
 
+	SHOW_HIDE("showHide"), REQUIRE("require");
 	AUTOFILL_ZIP("autofillZip"), ENABLE_DISABLE("enableDisable"),
 	SHOW_HIDE("showHide");
 
