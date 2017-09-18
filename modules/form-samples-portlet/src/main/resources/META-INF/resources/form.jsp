@@ -16,11 +16,8 @@
 
 <%@ include file="/init.jsp" %>
 
-<portlet:renderURL var="showHideURL">
-	<portlet:param name="mvcPath" value="/form.jsp" />
-	<portlet:param name="type" value="showHide" />
-</portlet:renderURL>
+<%
+FormSampleDisplayContext formSampleDisplayContext = new FormSampleDisplayContext(renderRequest, renderResponse);
+%>
 
-<ul>
-	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
-</ul>
+<%= formSampleDisplayContext.getFormHTML() %>
