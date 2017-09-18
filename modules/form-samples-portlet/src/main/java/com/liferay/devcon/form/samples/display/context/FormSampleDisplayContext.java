@@ -113,8 +113,8 @@ public class FormSampleDisplayContext {
 	private static Map<String, Class<?>> _formsMap = new HashMap<>();
 
 	static {
-		_formsMap.put(FormType.REQUIRE.toString(), Require.class);
 		_formsMap.put(FormType.AUTOFILL_ZIP.toString(), AutofillZip.class);
+		_formsMap.put(FormType.REQUIRE.toString(), Require.class);
 		_formsMap.put(FormType.SHOW_HIDE.toString(), ShowHide.class);
 		_formsMap.put(FormType.ENABLE_DISABLE.toString(), EnableDisable.class);
 	}
