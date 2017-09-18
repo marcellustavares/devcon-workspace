@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.devcon.form.samples.portlet;
+package com.liferay.devcon.form.samples.display.context;
 
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
