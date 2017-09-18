@@ -26,7 +26,13 @@
 	<portlet:param name="type" value="<%= FormType.ENABLE_DISABLE.toString() %>" />
 </portlet:renderURL>
 
+<portlet:renderURL var="autofillZipURL">
+	<portlet:param name="mvcPath" value="/form.jsp" />
+	<portlet:param name="type" value="<%= FormType.AUTOFILL_ZIP.toString() %>" />
+</portlet:renderURL>
+
 <ul>
 	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
 	<li><a href="<%= enableDisableURL %>">Enable/Disable</a></li>
+	<li><a href="<%= autofillZipURL %>">Autofill Zip</a></li>
 </ul>

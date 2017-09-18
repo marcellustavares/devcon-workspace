@@ -19,7 +19,8 @@ package com.liferay.devcon.form.samples.display.context;
  */
 public enum FormType {
 
-	ENABLE_DISABLE("enableDisable"), SHOW_HIDE("showHide");
+	AUTOFILL_ZIP("autofillZip"), ENABLE_DISABLE("enableDisable"),
+	SHOW_HIDE("showHide");
 
 	@Override
 	public String toString() {

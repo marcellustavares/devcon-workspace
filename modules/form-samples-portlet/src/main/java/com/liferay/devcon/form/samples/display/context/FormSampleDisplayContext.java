@@ -14,6 +14,7 @@
 
 package com.liferay.devcon.form.samples.display.context;
 
+import com.liferay.devcon.form.samples.definitions.AutofillZip;
 import com.liferay.devcon.form.samples.definitions.EnableDisable;
 import com.liferay.devcon.form.samples.definitions.ShowHide;
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderer;
@@ -111,6 +112,7 @@ public class FormSampleDisplayContext {
 	private static Map<String, Class<?>> _formsMap = new HashMap<>();
 
 	static {
+		_formsMap.put(FormType.AUTOFILL_ZIP.toString(), AutofillZip.class);
 		_formsMap.put(FormType.SHOW_HIDE.toString(), ShowHide.class);
 		_formsMap.put(FormType.ENABLE_DISABLE.toString(), EnableDisable.class);
 	}
