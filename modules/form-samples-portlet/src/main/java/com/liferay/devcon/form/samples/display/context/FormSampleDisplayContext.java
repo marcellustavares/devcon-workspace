@@ -14,6 +14,20 @@
 
 package com.liferay.devcon.form.samples.display.context;
 
+import com.liferay.devcon.form.samples.definitions.ShowHide;
+import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderer;
+import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderingContext;
+import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderingException;
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.model.DDMFormLayout;
+import com.liferay.dynamic.data.mapping.util.DDMFormFactory;
+import com.liferay.dynamic.data.mapping.util.DDMFormLayoutFactory;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+
+import java.util.Objects;
+
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
@@ -23,16 +37,80 @@ import javax.portlet.RenderResponse;
 public class FormSampleDisplayContext {
 
 	public FormSampleDisplayContext(
-		RenderRequest renderRequest, RenderResponse renderResponse) {
+		DDMFormRenderer ddmFormRenderer, RenderRequest renderRequest,
+		RenderResponse renderResponse) {
 
+		_ddmFormRenderer = ddmFormRenderer;
 		_renderRequest = renderRequest;
 		_renderResponse = renderResponse;
 	}
 
 	public String getFormHTML() {
-		return "Form HTML";
+		DDMForm ddmForm = getDDMForm();
+
+		DDMFormRenderingContext ddmFormRenderingContext =
+			createDDMFormRenderingContext(
+				_renderRequest, _renderResponse, ddmForm);
+
+		try {
+			return _ddmFormRenderer.render(
+				ddmForm, getDDMFormLayout(), ddmFormRenderingContext);
+		}
+		catch (DDMFormRenderingException ddmfre) {
+			return "Unable to render the form";
+		}
 	}
 
+	protected DDMFormRenderingContext createDDMFormRenderingContext(
+		RenderRequest renderRequest, RenderResponse renderResponse,
+		DDMForm ddmForm) {
+
+		DDMFormRenderingContext ddmFormRenderingContext =
+			new DDMFormRenderingContext();
+
+		ddmFormRenderingContext.setHttpServletRequest(
+			PortalUtil.getHttpServletRequest(renderRequest));
+		ddmFormRenderingContext.setHttpServletResponse(
+			PortalUtil.getHttpServletResponse(renderResponse));
+
+		ThemeDisplay themeDisplay = getThemeDisplay(renderRequest);
+
+		ddmFormRenderingContext.setLocale(themeDisplay.getLocale());
+
+		ddmFormRenderingContext.setPortletNamespace(
+			renderResponse.getNamespace());
+
+		return ddmFormRenderingContext;
+	}
+
+	protected DDMForm getDDMForm() {
+		String type = _renderRequest.getParameter("type");
+
+		if (Objects.equals(type, "showHide")) {
+			return DDMFormFactory.create(ShowHide.class);
+		}
+
+		return null;
+	}
+
+	protected DDMFormLayout getDDMFormLayout() {
+		String type = _renderRequest.getParameter("type");
+
+		if (Objects.equals(type, "showHide")) {
+			return DDMFormLayoutFactory.create(ShowHide.class);
+		}
+
+		return null;
+	}
+
+	protected ThemeDisplay getThemeDisplay(RenderRequest renderRequest) {
+		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		return themeDisplay;
+	}
+
+	private DDMFormRenderer _ddmFormRenderer;
 	private RenderRequest _renderRequest;
 	private RenderResponse _renderResponse;
 

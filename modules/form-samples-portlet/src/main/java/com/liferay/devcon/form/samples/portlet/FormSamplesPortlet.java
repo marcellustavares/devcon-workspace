@@ -14,11 +14,20 @@
 
 package com.liferay.devcon.form.samples.portlet;
 
+import com.liferay.devcon.form.samples.display.context.FormSampleDisplayContext;
+import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderer;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.util.WebKeys;
+
+import java.io.IOException;
 
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Marcellus Tavares
@@ -37,4 +46,23 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class FormSamplesPortlet extends MVCPortlet {
+
+	@Override
+	public void render(
+			RenderRequest renderRequest, RenderResponse renderResponse)
+		throws IOException, PortletException {
+
+		FormSampleDisplayContext formSampleDisplayContext =
+			new FormSampleDisplayContext(
+				ddmFormRenderer, renderRequest, renderResponse);
+
+		renderRequest.setAttribute(
+			WebKeys.PORTLET_DISPLAY_CONTEXT, formSampleDisplayContext);
+
+		super.render(renderRequest, renderResponse);
+	}
+
+	@Reference
+	protected DDMFormRenderer ddmFormRenderer;
+
 }

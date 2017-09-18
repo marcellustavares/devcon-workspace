@@ -16,8 +16,4 @@
 
 <%@ include file="/init.jsp" %>
 
-<%
-FormSampleDisplayContext formSampleDisplayContext = new FormSampleDisplayContext(renderRequest, renderResponse);
-%>
-
 <%= formSampleDisplayContext.getFormHTML() %>
