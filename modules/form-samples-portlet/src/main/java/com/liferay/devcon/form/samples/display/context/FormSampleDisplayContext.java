@@ -14,6 +14,7 @@
 
 package com.liferay.devcon.form.samples.display.context;
 
+import com.liferay.devcon.form.samples.definitions.Require;
 import com.liferay.devcon.form.samples.definitions.ShowHide;
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderer;
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderingContext;
@@ -110,6 +111,7 @@ public class FormSampleDisplayContext {
 	private static Map<String, Class<?>> _formsMap = new HashMap<>();
 
 	static {
+		_formsMap.put(FormType.REQUIRE.toString(), Require.class);
 		_formsMap.put(FormType.SHOW_HIDE.toString(), ShowHide.class);
 	}
 

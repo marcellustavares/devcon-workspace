@@ -19,7 +19,7 @@ package com.liferay.devcon.form.samples.display.context;
  */
 public enum FormType {
 
-	SHOW_HIDE("showHide");
+	SHOW_HIDE("showHide"), REQUIRE("require");
 
 	@Override
 	public String toString() {
