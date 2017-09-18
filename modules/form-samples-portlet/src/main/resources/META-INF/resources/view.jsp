@@ -21,6 +21,12 @@
 	<portlet:param name="type" value="<%= FormType.SHOW_HIDE.toString() %>" />
 </portlet:renderURL>
 
+<portlet:renderURL var="enableDisableURL">
+	<portlet:param name="mvcPath" value="/form.jsp" />
+	<portlet:param name="type" value="<%= FormType.ENABLE_DISABLE.toString() %>" />
+</portlet:renderURL>
+
 <ul>
 	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
+	<li><a href="<%= enableDisableURL %>">Enable/Disable</a></li>
 </ul>
