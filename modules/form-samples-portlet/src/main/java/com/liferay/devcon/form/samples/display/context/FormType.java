@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,15 +11,25 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.devcon.form.samples.display.context;
 
-<portlet:renderURL var="showHideURL">
-	<portlet:param name="mvcPath" value="/form.jsp" />
-	<portlet:param name="type" value="<%= FormType.SHOW_HIDE.toString() %>" />
-</portlet:renderURL>
+/**
+ * @author Marcellus Tavares
+ */
+public enum FormType {
 
-<ul>
-	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
-</ul>
+	SHOW_HIDE("showHide");
+
+	@Override
+	public String toString() {
+		return _value;
+	}
+
+	private FormType(String value) {
+		_value = value;
+	}
+
+	private String _value;
+
+}

@@ -26,7 +26,8 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -86,21 +87,13 @@ public class FormSampleDisplayContext {
 	protected DDMForm getDDMForm() {
 		String type = _renderRequest.getParameter("type");
 
-		if (Objects.equals(type, "showHide")) {
-			return DDMFormFactory.create(ShowHide.class);
-		}
-
-		return null;
+		return DDMFormFactory.create(_formsMap.get(type));
 	}
 
 	protected DDMFormLayout getDDMFormLayout() {
 		String type = _renderRequest.getParameter("type");
 
-		if (Objects.equals(type, "showHide")) {
-			return DDMFormLayoutFactory.create(ShowHide.class);
-		}
-
-		return null;
+		return DDMFormLayoutFactory.create(_formsMap.get(type));
 	}
 
 	protected ThemeDisplay getThemeDisplay(RenderRequest renderRequest) {
@@ -113,5 +106,11 @@ public class FormSampleDisplayContext {
 	private DDMFormRenderer _ddmFormRenderer;
 	private RenderRequest _renderRequest;
 	private RenderResponse _renderResponse;
+
+	private static Map<String, Class<?>> _formsMap = new HashMap<>();
+
+	static {
+		_formsMap.put(FormType.SHOW_HIDE.toString(), ShowHide.class);
+	}
 
 }

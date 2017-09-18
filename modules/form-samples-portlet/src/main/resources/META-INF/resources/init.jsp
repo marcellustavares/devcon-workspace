@@ -25,7 +25,8 @@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
-<%@ page import="com.liferay.devcon.form.samples.display.context.FormSampleDisplayContext" %>
+<%@ page import="com.liferay.devcon.form.samples.display.context.FormSampleDisplayContext" %><%@
+page import="com.liferay.devcon.form.samples.display.context.FormType" %>
 
 <%
 FormSampleDisplayContext formSampleDisplayContext = (FormSampleDisplayContext)request.getAttribute(WebKeys.PORTLET_DISPLAY_CONTEXT);
