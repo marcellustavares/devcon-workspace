@@ -19,8 +19,9 @@ package com.liferay.devcon.form.samples.display.context;
  */
 public enum FormType {
 
-	AUTOFILL_ZIP("autofillZip"), DATE_VALIDATION("dateValidation"),
-	ENABLE_DISABLE("enableDisable"), REQUIRE("require"), SHOW_HIDE("showHide");
+	AUTOFILL_ZIP("autofillZip"), CALCULATE("calculate"),
+	DATE_VALIDATION("dateValidation"), ENABLE_DISABLE("enableDisable"),
+	REQUIRE("require"), SHOW_HIDE("showHide");
 
 	@Override
 	public String toString() {

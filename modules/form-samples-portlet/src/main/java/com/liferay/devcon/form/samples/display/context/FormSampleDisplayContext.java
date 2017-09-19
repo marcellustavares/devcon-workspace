@@ -15,6 +15,7 @@
 package com.liferay.devcon.form.samples.display.context;
 
 import com.liferay.devcon.form.samples.definitions.AutofillZip;
+import com.liferay.devcon.form.samples.definitions.Calculate;
 import com.liferay.devcon.form.samples.definitions.DateValidation;
 import com.liferay.devcon.form.samples.definitions.EnableDisable;
 import com.liferay.devcon.form.samples.definitions.Require;
@@ -120,6 +121,7 @@ public class FormSampleDisplayContext {
 		_formsMap.put(FormType.REQUIRE.toString(), Require.class);
 		_formsMap.put(FormType.SHOW_HIDE.toString(), ShowHide.class);
 		_formsMap.put(FormType.ENABLE_DISABLE.toString(), EnableDisable.class);
+		_formsMap.put(FormType.CALCULATE.toString(), Calculate.class);
 	}
 
 }

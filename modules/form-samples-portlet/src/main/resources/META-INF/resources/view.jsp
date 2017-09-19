@@ -41,10 +41,16 @@
 	<portlet:param name="type" value="<%= FormType.AUTOFILL_ZIP.toString() %>" />
 </portlet:renderURL>
 
+<portlet:renderURL var="calculateURL">
+	<portlet:param name="mvcPath" value="/form.jsp" />
+	<portlet:param name="type" value="<%= FormType.CALCULATE.toString() %>" />
+</portlet:renderURL>
+
 <ul>
 	<li><a href="<%= requireURL %>">Require</a></li>
 	<li><a href="<%= dateValidationURL %>">Date Validation</a></li>
 	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
 	<li><a href="<%= enableDisableURL %>">Enable/Disable</a></li>
 	<li><a href="<%= autofillZipURL %>">Autofill Zip</a></li>
+	<li><a href="<%= calculateURL %>">Calculate</a></li>
 </ul>
