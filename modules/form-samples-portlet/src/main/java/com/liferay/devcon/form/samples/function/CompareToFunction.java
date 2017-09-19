@@ -1,5 +1,3 @@
-package com.liferay.devcon.form.samples.function;
-
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -13,6 +11,8 @@ package com.liferay.devcon.form.samples.function;
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
+
+package com.liferay.devcon.form.samples.function;
 
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionFunction;
 
