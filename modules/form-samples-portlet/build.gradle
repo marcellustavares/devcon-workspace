@@ -2,6 +2,7 @@ apply plugin: "eclipse"
 
 dependencies {
 	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.api", version: "3.6.0-20170620.133954-23"
+	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.expression", version: "2.1.0-20170802.213213-16"
 	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.form.renderer", version: "2.2.0-20170418.232433-27"
 	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.form.values.factory", version: "2.0.8-20170125.002431-2"
 	compileOnly group: "com.liferay", name: "com.liferay.dynamic.data.mapping.io", version: "2.0.13-20170308.203117-3"
