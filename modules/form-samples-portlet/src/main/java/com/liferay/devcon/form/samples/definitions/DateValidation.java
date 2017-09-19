@@ -43,7 +43,7 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 				@DDMFormLayoutRow(
 					{
 						@DDMFormLayoutColumn(
-							size = 12, value = {"dateFrom", "dateTo", "help"}
+							size = 12, value = {"dateFrom", "dateTo"}
 						)
 					}
 				)
