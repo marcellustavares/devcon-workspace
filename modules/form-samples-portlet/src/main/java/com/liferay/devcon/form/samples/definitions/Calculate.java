@@ -54,9 +54,9 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 public interface Calculate {
 
 	@DDMFormField(type = "numeric")
-	public int[] price();
+	public double[] price();
 
 	@DDMFormField
-	public int total();
+	public double total();
 
 }
