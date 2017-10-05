@@ -56,19 +56,20 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 public interface EnableDisable {
 
 	@DDMFormField(
+		label="Department",
 		optionLabels = {"Engineering", "Marketing", "Operations"},
 		optionValues = {"engineering", "marketing", "operations"},
 		type = "select"
 	)
 	public String department();
 
-	@DDMFormField(type = "date")
+	@DDMFormField(label="From", type = "date")
 	public String from();
 
-	@DDMFormField
+	@DDMFormField(label="Project Name")
 	public String projectName();
 
-	@DDMFormField(type = "date")
+	@DDMFormField(label="To", type = "date")
 	public String to();
 
 }

@@ -14,6 +14,7 @@
 
 package com.liferay.devcon.form.samples.display.context;
 
+import com.liferay.devcon.form.samples.definitions.AutofillRegions;
 import com.liferay.devcon.form.samples.definitions.AutofillZip;
 import com.liferay.devcon.form.samples.definitions.Calculate;
 import com.liferay.devcon.form.samples.definitions.DateValidation;
@@ -63,6 +64,8 @@ public class FormSampleDisplayContext {
 				ddmForm, getDDMFormLayout(), ddmFormRenderingContext);
 		}
 		catch (DDMFormRenderingException ddmfre) {
+			ddmfre.printStackTrace();
+
 			return "Unable to render the form";
 		}
 	}
@@ -115,6 +118,7 @@ public class FormSampleDisplayContext {
 	private static Map<String, Class<?>> _formsMap = new HashMap<>();
 
 	static {
+		_formsMap.put(FormType.AUTOFILL_REGIONS.toString(), AutofillRegions.class);
 		_formsMap.put(FormType.AUTOFILL_ZIP.toString(), AutofillZip.class);
 		_formsMap.put(
 			FormType.DATE_VALIDATION.toString(), DateValidation.class);

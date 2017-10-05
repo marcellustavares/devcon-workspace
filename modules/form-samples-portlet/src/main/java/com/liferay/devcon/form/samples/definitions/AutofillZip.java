@@ -67,16 +67,16 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 )
 public interface AutofillZip {
 
-	@DDMFormField
+	@DDMFormField(label="Country")
 	public String country();
 
-	@DDMFormField
+	@DDMFormField(label="Place")
 	public String place();
 
-	@DDMFormField
+	@DDMFormField(label="State")
 	public String state();
 
-	@DDMFormField
+	@DDMFormField(label="Zip code")
 	public String zipCode();
 
 }

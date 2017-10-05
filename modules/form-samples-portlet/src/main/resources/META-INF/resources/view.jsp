@@ -21,11 +21,6 @@
 	<portlet:param name="type" value="<%= FormType.REQUIRE.toString() %>" />
 </portlet:renderURL>
 
-<portlet:renderURL var="dateValidationURL">
-	<portlet:param name="mvcPath" value="/form.jsp" />
-	<portlet:param name="type" value="<%= FormType.DATE_VALIDATION.toString() %>" />
-</portlet:renderURL>
-
 <portlet:renderURL var="showHideURL">
 	<portlet:param name="mvcPath" value="/form.jsp" />
 	<portlet:param name="type" value="<%= FormType.SHOW_HIDE.toString() %>" />
@@ -34,6 +29,11 @@
 <portlet:renderURL var="enableDisableURL">
 	<portlet:param name="mvcPath" value="/form.jsp" />
 	<portlet:param name="type" value="<%= FormType.ENABLE_DISABLE.toString() %>" />
+</portlet:renderURL>
+
+<portlet:renderURL var="autofillRegionsURL">
+	<portlet:param name="mvcPath" value="/form.jsp" />
+	<portlet:param name="type" value="<%= FormType.AUTOFILL_REGIONS.toString() %>" />
 </portlet:renderURL>
 
 <portlet:renderURL var="autofillZipURL">
@@ -48,9 +48,9 @@
 
 <ul>
 	<li><a href="<%= requireURL %>">Require</a></li>
-	<li><a href="<%= dateValidationURL %>">Date Validation</a></li>
 	<li><a href="<%= showHideURL %>">Show/Hide</a></li>
 	<li><a href="<%= enableDisableURL %>">Enable/Disable</a></li>
+	<li><a href="<%= autofillRegionsURL %>">Autofill Regions</a></li>
 	<li><a href="<%= autofillZipURL %>">Autofill Zip</a></li>
 	<li><a href="<%= calculateURL %>">Calculate</a></li>
 </ul>

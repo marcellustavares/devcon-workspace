@@ -55,22 +55,23 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 )
 public interface ShowHide {
 
-	@DDMFormField
+	@DDMFormField(label="Depart Date", type="date")
 	public String departDate();
 
-	@DDMFormField
+	@DDMFormField(label="From")
 	public String from();
 
 	@DDMFormField(
+		label="Journey Type",
 		optionLabels = {"Return", "One-way"}, optionValues = {"rt", "ow"},
 		properties = "inline=true", type = "radio"
 	)
 	public String journeyType();
 
-	@DDMFormField
+	@DDMFormField(label="Return Date", type="date")
 	public String returnDate();
 
-	@DDMFormField
+	@DDMFormField(label="To")
 	public String to();
 
 }
